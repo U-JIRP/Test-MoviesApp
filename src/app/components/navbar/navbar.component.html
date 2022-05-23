@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark  bg-dark ">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" routerLink='/home' routerLinkActive="router-link-active">Movies App</a>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            </ul>
+            <div class="d-flex">
+                <input #txtSearch class="form-control me-2" type="search" placeholder="Buscar película">
+                <button class="btn btn-outline-light" type="submit" (click)="search(txtSearch.value)">Buscar</button>
+            </div>
+        </div>
+    </div>
+</nav>

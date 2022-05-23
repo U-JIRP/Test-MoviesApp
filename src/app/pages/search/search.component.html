@@ -1,0 +1,9 @@
+<h1>Buscar películas</h1>
+<div class="alert alert-warning mt-5" role="alert" *ngIf="movies.length === 0">
+    <h4 class="alert-heading">¡Lo sentimos!</h4>
+    <p class="alert-text">No encontramos ningún resultado con la palabra <strong>{{ search }}</strong>.</p>
+    <hr>
+    <p class="alert-text mb-0">Te sugerimos intentar la búsqueda con otro combinación de palabras. </p>
+</div>
+
+<app-movie-poster-grid [movies]="movies" *ngIf="movies.length > 0"></app-movie-poster-grid>

@@ -1,0 +1,63 @@
+<div *ngIf="movie !== null">
+    <div class="heading-section">
+        <h2>{{ movie.title }}</h2>
+    </div>
+    <div class="row animate__animated animate__fadeIn animate__faster">
+        <div class="col-md-6">
+            <div id="slider" class="owl-carousel product-slider">
+                <div class="item">
+                    <img [src]="movie.backdrop_path | poster" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="product-dtl">
+                <div class="product-info">
+                    <div class="product-name">
+                        <p><strong>Nombre original:</strong> {{ movie.original_title }}</p>
+                    </div>
+                    <div class="product-price-discount">
+                        <span>
+                            <p><strong>Fecha de lanzamiento:</strong> {{ movie.release_date }}</p>
+                        </span>
+                    </div>
+                    <div class="reviews-counter">
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5" checked readonly />
+                            <label for="star5" title="text"></label>
+                        </div>
+                        <span><p>{{ movie.vote_average | number:'1.1' }} / 10</p></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p><strong>Género(s):</strong></p>
+                    <div class="col-md-3">
+                        <span class="badge bg-light text-dark ms-1" *ngFor="let genre of movie.genres">{{ genre.name }}</span>
+                    </div>
+                </div>
+                <div class="product-count">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5" *ngIf="cast !== null">
+        <div class="col">
+            <h2>Actores de reparto</h2>
+            <app-cast-slide [cast]="cast"></app-cast-slide>
+        </div>
+    </div>
+    <div class="product-info-tabs">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="description-tab" data-toggle="tab" role="tab" aria-controls="description" aria-selected="true">Sinopsis</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                {{ movie.overview }}
+            </div>
+        </div>
+    </div>
+</div>

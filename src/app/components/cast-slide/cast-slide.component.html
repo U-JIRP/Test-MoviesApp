@@ -1,0 +1,10 @@
+<ngb-carousel>
+    <ng-template ngbSlide *ngFor="let actor of cast">
+        <div class="picsum-img-wrapper">
+            <img class="rounded mx-auto d-block img-cast" [src]="'https://image.tmdb.org/t/p/w500' + actor.profile_path" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+            <h3 class="text-actor">{{ actor.name }}</h3>
+        </div>
+    </ng-template>
+</ngb-carousel>
